@@ -8,8 +8,9 @@ class PaypalCheckout extends StatefulWidget {
   final String? returnURL, cancelURL, note, clientId, secretKey;
   final List? transactions;
   final bool? sandboxMode;
+
   const PaypalCheckout({
-    Key? key,
+    super.key,
     this.onSuccess,
     this.onError,
     this.onCancel,
@@ -20,7 +21,7 @@ class PaypalCheckout extends StatefulWidget {
     required this.secretKey,
     this.sandboxMode = false,
     this.note = '',
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -121,16 +122,16 @@ class PaypalCheckoutState extends State<PaypalCheckout> {
               ) {
                 if (requestURL!.path.contains(widget.returnURL!)) {
                   final uri = requestURL;
-                  final payerID = uri!.queryParameters['PayerID'];
+                  final payerID = uri.queryParameters['PayerID'];
                   if (payerID != null) {
                     services
                         .executePayment(executeUrl, payerID, accessToken)
                         .then(
                       (id) {
                         widget.onSuccess!(id);
-                        //Navigator.of(context).pop();
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ReturnPage(),
+
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const ReturnPage(),
                         ));
                       },
                     );
@@ -139,7 +140,7 @@ class PaypalCheckoutState extends State<PaypalCheckout> {
                   }
                 }
 
-                if (requestURL!.path.contains(widget.cancelURL!)) {
+                if (requestURL.path.contains(widget.cancelURL!)) {
                   print("cancelURL");
                   widget.onCancel!();
                   Navigator.of(context).pop();

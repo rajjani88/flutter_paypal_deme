@@ -1,6 +1,6 @@
 # flutter_paypal_demo
 
-A new Flutter project.
+A Simple project to integrate flutter in Just 5 miniutes. Simple library clone. I personally used one package but it hase navigation call back issues after successfull payment so, i cloned repository and added / Modified sp,e code and published. So next time i myself can resue this code and do paypal payment gateway integration quickly.
 
 ## Getting Started
 

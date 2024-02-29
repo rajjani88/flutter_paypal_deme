@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_paypal_demo/paypalserveice/my_checkout.dart';
 //import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 //import 'package:flutter_paypal/flutter_paypal.dart';
-import 'package:flutter_paypal_demo/screens/return.dart';
-import 'package:flutter_paypal_demo/paypalserveice/my_paypal_services.dart';
 
 const mClientID =
     "ARRDwDLRACbhTIaJ4mx5d_s_0osCufD8D7h5ZO0pO_2HSuk26XwSqGfzBIXpwvLFLhEoF_fXEnBziK8r";
