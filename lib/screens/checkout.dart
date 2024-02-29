@@ -22,7 +22,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
         sandboxMode: true,
         clientId: mClientID,
         secretKey: mSecertKEy,
-        returnURL: "success.snippetcoder.com",
+        //returnURL: "success.snippetcoder.com",
+        returnURL:
+            "https://www.cruzcoservices.com/cruzcoservice/index.php/ApiController/redirect_url",
         cancelURL: "cencel.com",
         transactions: const [
           {

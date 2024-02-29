@@ -120,16 +120,20 @@ class PaypalCheckoutState extends State<PaypalCheckout> {
                 InAppWebViewController? controller,
                 Uri? requestURL,
               ) {
-                if (requestURL!.path.contains(widget.returnURL!)) {
+                print("===== out URI $requestURL");
+                print("inside : ${requestURL!.path} == ${widget.returnURL!}");
+                if (requestURL!.path
+                    .contains(Uri.parse(widget.returnURL!).path)) {
                   final uri = requestURL;
+                  print("===== URI $uri");
                   final payerID = uri.queryParameters['PayerID'];
+
                   if (payerID != null) {
                     services
                         .executePayment(executeUrl, payerID, accessToken)
                         .then(
                       (id) {
                         widget.onSuccess!(id);
-
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const ReturnPage(),
                         ));
